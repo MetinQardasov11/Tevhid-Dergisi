@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 max-width">
+        <div class="widget">
+          <div class="section-title">
+            <h5 class="mb-4">Metin</h5>
+          </div>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="tab-dersSon" role="tabpanel" aria-labelledby="pills-dersSon-tab">
+              <ul class="widget-categories">
+                <li class="mb-3 profileActive">
+                  <a href="{% url 'my_profile:profile' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-user"></i>Profilim</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:questions' %}" class="ml-auto tekSatir" title="Sorduğum Sorular"><i class="mr-3 fa fa-question-circle"></i>Sorduğum Sorular</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:comments' %}" class="ml-auto tekSatir" title="Yaptığım Yorumlar"><i class="mr-3 fa fa-comments"></i>Yaptığım Yorumlar</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:results_exam' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-file-alt"></i>Test Sonuçlarım</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:update_info' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-gear"></i>Bilgilerimi Güncelle</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:update_password' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-lock"></i>Şifremi Güncelle</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:messages' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-envelope"></i>Mesajlar (0)</a>
+                </li>
+                <li class="mb-2">
+                  <a href="{% url 'my_profile:logout' %}" class="ml-auto tekSatir" title=""><i class="mr-3 fa fa-sign-out"></i>Çıkıp Yap</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        {% block profile_content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

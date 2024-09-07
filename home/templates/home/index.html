@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Anasayfa
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row sliders">
+      <div class="col-12">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for article in article_orders %}
+              <div class="carousel-item {% if forloop.first %} active {% endif %}" data-bs-interval="4000">
+                <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}"><img src="{{ article.image.url }}" class="d-block w-100" alt="{{ article.title }}" /></a>
+              </div>
+            {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="widget">
+          <div class="section-title">
+            <h5 class="mb-4">Son Paylaşılan Derlser</h5>
+          </div>
+          <ul class="widget-categories">
+            {% for lesson in lessons %}
+              <li class="mb-2">
+                <a href="{% url 'lesson:lesson_detail' section_slug=lesson.topic.section.slug topic_slug=lesson.topic.slug lesson_slug=lesson.slug %}" class="ml-auto tekSatir" title="{{ lesson.name }}">{{ lesson.name }}</a>
+                <a href="{% url 'lesson:lessons' section_slug=lesson.topic.section.slug topic_slug=lesson.topic.slug %}" class="categorie">{{ lesson.topic.name }} <i class="fa fa-angle-right"></i></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="widget">
+          <div class="section-title">
+            <h5 class="mb-4">Son Paylaşılan Yazılar</h5>
+          </div>
+          <ul class="widget-categories">
+            {% for article in articles %}
+              <li class="mb-2">
+                <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}" class="ml-auto tekSatir" title="{{ article.title }}">{{ article.title }}</a>
+                <a href="{% url 'article:category' slug=article.category.slug %}" class="categorie">{{ article.category.name }} <i class="fa fa-angle-right"></i></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

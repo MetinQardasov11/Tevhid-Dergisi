@@ -1,0 +1,143 @@
+body{
+    background-color: #f9ffff;
+}
+
+.card {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    border: 2px solid #ffffff;
+    margin-top: 150px;
+    box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+.footer .back .back-top {
+  width: 45px;
+  height: 45px;
+  background-color: #48c9b0;
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  border-radius: 50%;
+  z-index: 9;
+  display: none;
+  text-align: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid #48c9b0;
+}
+
+.footer .back .back-top i {
+  color: #ffffff;
+  line-height: 45px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.footer .back .back-top:hover {
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+          box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  background-color: transparent;
+  border: 1px solid #48c9b0;
+}
+
+.footer .back .back-top:hover i {
+  color: #48c9b0;
+}
+
+.card .img {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: -50px; 
+    padding: 30px;
+}
+
+.card img {
+    width: 100%;
+    transition: transform 0.8s;
+    height: 450px;
+    object-fit: cover;
+}
+
+.card img:hover {
+    transform: scale(1.07);
+}
+
+.card .card-body {
+    padding: 10px;
+    margin-top: 200px;
+}
+
+.card-title:hover {
+    color: #48c9b0;
+    transition: 0.7s;
+}
+
+.btn-color {
+    background-color: #48c9b0;
+    color: white;
+}
+
+.btn-color:hover {
+    background-color: black;
+    color: white;
+    transition: 0.7s;
+}
+
+.writer img {
+    width: 10%;
+    border-radius: 50%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.writer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date {
+    margin: -20px 0;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+    .card .card-body {
+        padding: 10px;
+        margin-top: 150px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px ) {
+    .card .card-body {
+        padding: 10px;
+        margin-top: 160px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .card .card-body {
+        padding: 10px;
+        margin-top: 300px;
+    }
+}
+
+@media only screen and (min-width: 0) and (max-width: 575px) {
+    .card .card-body {
+        padding: 10px;
+        margin-top: 250px;
+    }
+}

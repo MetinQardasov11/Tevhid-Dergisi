@@ -1,0 +1,201 @@
+{% extends 'base.html' %} {% block title %}
+  {{ article.title }}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+        <div class="categorie-title">
+          <small>
+            <a href="{% url 'home:home' %}">Şehadet Mektebi ></a>
+            <span class="arrow_carrot-right"></span> <a href="{% url 'article:article' %}">Yazılar ></a>
+            <span class="arrow_carrot-right"></span> <a href="{% url 'article:category' category.slug %}">{{ category.name }} > </a>
+            <span class="arrow_carrot-right"></span> {{ article.title }}
+          </small>
+          <br /><br />
+          <br /><br />
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card mt-5 rounded-4">
+          <div class="img my-2">
+            <img src="{{ article.image.url }}" class="img-fluid border rounded-4" alt="..." />
+          </div>
+          <div class="card-body" style="margin-top: 400px;">
+            <div class="title d-flex justify-content-between align-items-start mb-3 gap-3">
+              <a href="#" class="card-title text-decoration-none fs-5 fw-bold">{{ article.title }}</a>
+            </div>
+            <p class="card-text">{{ article.text|safe }}</p>
+            <div class="footer">
+              <div class="writer gap-3 my-4 ">
+                <div class="card-title">
+                    <span class="fw-bold">{{ article.author }}</span> <br><br> {{ article.date|date:'j M Y' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+        <div class="row">
+          <!-- 
+          <div class="col-md-6">
+            <div class="widget">
+              <div class="widget-next-post">
+                <div class="small-post">
+                  <div class="image">
+                    <a href="#"><img src="{{ article.image.url }}" alt="{{ article.title }}" /></a>
+                  </div>
+                  <div class="content">
+                    <div>
+                      <a class="link" href="https://sehadetmektebi.com/yazilar/akaid/tevhid-ancak-sartlari-ile-muteberdir">
+                        <i class="arrow_left"></i>
+                        Önceki Yazı
+                      </a>
+                    </div>
+                    <a href="https://sehadetmektebi.com/yazilar/akaid/tevhid-ancak-sartlari-ile-muteberdir">Tevhid Ancak Şartları İle Muteberdir</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="widget">
+              <div class="widget-previous-post">
+                <div class="small-post">
+                  <div class="image">
+                    <a href="https://sehadetmektebi.com/yazilar/akaid/kuran-i-kerim-de-arapca-disinda-kelimeler-var-midir"><img src="https://sehadetmektebi.com/assets/uploads/KuranıKerimdeArapDili_copy.jpg" alt="Kuran-ı Kerim'de Arapça Dışında Kelimeler Var mıdır?" /></a>
+                  </div>
+                  <div class="content">
+                    <div>
+                      <a class="link" href="https://sehadetmektebi.com/yazilar/akaid/kuran-i-kerim-de-arapca-disinda-kelimeler-var-midir">
+                        <span>Sonraki Yazı</span>
+                        <span class="arrow_right"></span>
+                      </a>
+                    </div>
+                    <a href="https://sehadetmektebi.com/yazilar/akaid/kuran-i-kerim-de-arapca-disinda-kelimeler-var-midir">Kuran-ı Kerim'de Arapça Dışında Kelimeler Var mıdır?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           -->
+        </div>
+
+        <!--
+            <div class="widget mb-50">
+          <div class="title">
+            <h5>Yorumlar (0)</h5>
+          </div>
+          <ul class="widget-comments">
+            <div class="alert alert-warning contact_msg" role="alert">Bu yazıya henüz hiç yorum yapılmadı!</div>
+          </ul>
+          <div class="title">
+            <h5>Yorum Yazınız</h5>
+          </div>
+          <div class="alert alert-warning contact_msg" role="alert">
+            Yorum yazabilmek için kayıt olmalısınız! Kayıt olmak için
+            <a href="https://sehadetmektebi.com/kayit">tıklayın!</a>
+          </div>
+            </div>
+        -->
+      </div>
+      <div class="col-lg-4" style="margin-top: -26px;">
+        <br />
+        <!-- widge t-author -->
+        <div class="widget">
+          <div class="section-title">
+            <h5>Arama</h5>
+          </div>
+          <form class="right-search-form">
+            <div class="mb-3">
+              <input type="search" class="form-control" name="q" placeholder="Aradığınız Kelime?" />
+            </div>
+            <button type="submit" class="search-btn btn btn-success">Ara</button>
+          </form>
+        </div>
+        <!-- / -->
+
+        <!-- widget-latest-posts -->
+        <div class="widget">
+          <div class="section-title">
+            <h5 class="mb-4">Dersler</h5>
+            <ul class="nav nav-pills">
+              <li class="nav-item mr-2">
+                <a class="nav-link active" style="background-color: #48c9b0; color: white;" href="#">Son Paylaşılan</a>
+              </li>
+              <li class="nav-item mr-2">
+                <a class="nav-link text-black">Çok İzleneler</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active">
+              <ul class="widget-categories">
+                {% for lesson in lessons %}
+                  <li class="mb-4">
+                    <a href="{% url 'lesson:lesson_detail' section_slug=lesson.topic.section.slug topic_slug=lesson.topic.slug lesson_slug=lesson.slug %}" class="ml-auto" title="{{ lesson.name }}">{{ lesson.name }}</a>
+                    <br>
+                    <a href="{% url 'lesson:lessons' section_slug=lesson.topic.section.slug topic_slug=lesson.topic.slug %}" class="categorie">{{ lesson.topic.name }} <i class="fa fa-angle-right"></i></a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="section-title">
+            <h5 class="mb-4">Yazılar</h5>
+            <ul class="nav nav-pills">
+              <li class="nav-item mr-2" role="presentation">
+                <a class="nav-link active" style="background-color: #48c9b0; color: white;">Son Paylaşılan</a>
+              </li>
+              <li class="nav-item mr-2" role="presentation">
+                <a class="nav-link text-black">Çok Okunanlar</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active">
+              <ul class="widget-latest-posts">
+                {% for article in articles %}
+                  <li class="last-post">
+                    <div class="image">
+                      <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}"><img src="{{ article.image.url }}" alt="{{ article.title }}" /></a>
+                    </div>
+                    <div class="nb">{{ forloop.counter }}</div>
+                    <div class="content">
+                      <p>
+                        <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}">{{ article.title }}</a>
+                      </p>
+                      <small><span class="icon_clock_alt"></span> {{ article.date|date:'j M Y' }}</small>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- widget-categories -->
+        <div class="widget">
+          <div class="section-title">
+            <h5>Kategoriler</h5>
+          </div>
+          <ul class="widget-categories">
+            {% for category in categories %}
+              <li>
+                <a href="{% url 'article:category' slug=category.slug %}" class="categorie">{{ category.name }} <i class="fa fa-angle-right"></i></a>
+                <a href="{% url 'article:category' slug=category.slug %}" style="display: block">{{ category.article_count }} Yazı</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- / -->
+      </div>
+    </div>
+  </div>
+{% endblock %}

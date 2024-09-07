@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Dersler
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="categorie-title">
+          <small>
+            <a href="{% url 'home:home' %}">Şehadet Mektebi ></a>
+            <span class="arrow_carrot-right"></span> <a href="{% url 'lesson:section' %}">Dersler ></a>
+            <span class="arrow_carrot-right"></span> <a href="{% url 'lesson:topic' section.slug %}">{{ section.name }} ></a>
+            <span class="arrow_carrot-right"></span> <a href="{% url 'lesson:lessons' section.slug topic.slug %}">{{ topic.name }} ></a>
+            <span class="arrow_carrot-right"></span> {{ lesson.name|slice:'3:' }}
+          </small>
+          <br /><br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <!-- Post-single -->
+          <br>
+          <div id="dersIcerik">
+            <div class="widget">
+              <div class="post-single-video">
+                <div style="">
+                  Video
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              </div>
+              <div class="post-single-content mt-3">
+                <h4 class="mb-0" 
+                style="font-family: 'Muli', sans-serif !important;
+                    font-weight: 900 !important;
+                    line-height: 1.4;
+                    color: #152035 !important;
+                    margin: 0;">
+                    {{ lesson.name }}</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- / -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="widget">
+                <div class="widget-previous-post">
+                  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item mr-2" role="presentation">
+                      <a class="btn-custom active" id="pills-aciklama-tab" data-toggle="pill" href="#tab-aciklama" role="tab" aria-controls="pills-aciklama" aria-selected="true">Açıklama</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="tab-aciklama" role="tabpanel" aria-labelledby="pills-aciklama-tab">
+              <div class="post-card">
+                <div class="post-single-body" id="dersAciklamaArea">
+                  <p>{{ topic.name }} İçeriğine Dair Genel Tanıtım</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

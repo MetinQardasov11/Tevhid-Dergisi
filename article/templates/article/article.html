@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Yazılar
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="categorie-title">
+                <small>
+                    <a href="{% url 'home:home' %}">Şehadet Mektebi > </a>
+                    <span class="arrow_carrot-right"></span> <a href="{% url 'article:article' %}">Yazilar</a>
+                </small>
+                <br><br>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row justify-content-start">
+            {% for article in articles %}
+                <div class="col-md-4">
+                    <div class="post-card">
+                        <div class="post-card-image">
+                            <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}">
+                                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid border rounded-4">
+                            </a>
+                        </div>
+                        <div class="post-card-content">
+                            <a href="{% url 'article:category' slug=article.category.slug %}" class="categorie">{{ article.category.name }}</a>
+                            <h5>
+                                <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}" class="fw-bold">{{ article.title }}</a>
+                                 <p>
+                                    {{ article.text|safe|truncatewords_html:20 }}
+                                </p>
+                            </h5>
+                            <p>{{ summary }}</p>
+                            <div class="post-card-info">
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="{% url 'article:article_detail' category_slug=article.category.slug article_slug=article.slug %}">{{ article.author }}</a>
+                                    </li>
+                                    <li class="dot"></li>
+                                    <li>{{ article.date|date:"d.m.Y" }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

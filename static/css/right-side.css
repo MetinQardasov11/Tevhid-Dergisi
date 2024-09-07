@@ -1,0 +1,142 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f8fc;
+}
+
+.section {
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #2d2d2d;
+  border-bottom: 2px solid #48c9b0;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  background: #e2e3ea;
+  color: #2d2d2d;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.tab.active {
+  background: #48c9b0;
+  color: #fff;
+}
+
+.posts .post {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.number {
+  background: #48c9b0;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.post img {
+  border-radius: 8px;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.post-content h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #2d2d2d;
+}
+
+.post-content p {
+  margin: 5px 0 0;
+  color: #9a9a9a;
+  display: flex;
+  align-items: center;
+}
+
+.clock-icon {
+  margin-right: 5px;
+}
+
+.categories .category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f8fc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.category-btn {
+  background: #48c9b0;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  color: black;
+}
+
+.footer .back .back-top {
+  width: 45px;
+  height: 45px;
+  background-color: #48c9b0;
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  border-radius: 50%;
+  z-index: 9;
+  display: none;
+  text-align: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid #48c9b0;
+}
+
+.footer .back .back-top i {
+  color: #ffffff;
+  line-height: 45px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.footer .back .back-top:hover {
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+  background-color: transparent;
+  border: 1px solid #48c9b0;
+}
+
+.footer .back .back-top:hover i {
+  color: #48c9b0;
+}

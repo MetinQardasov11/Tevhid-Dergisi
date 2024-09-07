@@ -1,0 +1,26 @@
+{% extends 'profile_base.html' %}
+
+{% block profile_content %}
+  <div class="post-card">
+    <div class="section-title">
+      <h5 class="mb-4">Mesaj Gönder</h5>
+    </div>
+    <div class="post-card-content">
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-md-12">
+          <form action="#" method="POST">
+            <textarea class="form-control" name="message" placeholder="Mesajınız..." rows="3"></textarea><br />
+            <button type="submit" class="btn btn-success pull-right" style="background-color: #48c9b0; color: black;">Gönder</button>
+          </form>
+          <br /><br />
+          <div class="section-title">
+            <h5 class="mb-4">Mesajlar</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
