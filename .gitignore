@@ -1,0 +1,54 @@
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Django specific files
+*.sqlite3
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+env/
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+
+# IDE/editor settings
+.idea/
+.vscode/
+*.swp
+
+# Local configuration files
+*.local
+
+# Environment files
+.env
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+*.iml
+*.pyc
+
+# MacOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
