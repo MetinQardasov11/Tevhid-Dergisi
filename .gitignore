@@ -23,7 +23,6 @@ env/
 !*/migrations/__init__.py
 
 # Media files
-media/
 
 # Static files
 staticfiles/
