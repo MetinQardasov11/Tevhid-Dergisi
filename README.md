@@ -48,17 +48,6 @@
     <br/>
     <br/>
 </div>
-
-### Kullanılan teknolojiler
-
-<div align="center">
-    <img src="https://resources.reed.co.uk/courses/coursemedia/342090/c3fa961c-1272-48a7-a21a-0d1bd7def86c_cover.webp" />
-    <br/>
-    <br/>
-    <br/>
-    <img src="https://blueshelltech.com/media/2021/05/python-django-1024x576.jpg" />
-</div>
-
    
 <br/>
 <br/>
